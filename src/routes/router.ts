@@ -6,6 +6,7 @@ import CreateUser from "../controllers/use-cases/create-user";
 import LoginUser from "../controllers/use-cases/login-user";
 import CreateNotes from "../controllers/notes/create-notes";
 import GetNotes from "../controllers/notes/notes-id";
+import GetUserProfile from "../controllers/use-cases/capture-info-user";
 export default async function Router(app: FastifyInstance) {
   app.get("/", (req, res) => {
     return "hello word";
@@ -18,4 +19,6 @@ export default async function Router(app: FastifyInstance) {
   app.post("/notes", CreateNotes);
 
   app.get("/notes/:id", GetNotes);
+
+  app.post('/api/user/profile', GetUserProfile)
 }

@@ -35,7 +35,14 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:3333/api/user/profile HTTP/1.1
+Content-Type: application/json
 
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZWM3NjU4OC01NGM3LTQxN2UtYjY2YS04YzY3ZjQ4NmEwMTciLCJpYXQiOjE3MjA4ODY1ODQsImV4cCI6MTcyMTQ5MTM4NH0.gYrtG0QDHrBg6r_v0pKh5L5dhWWiQXxi1lbC2R0sf3A"
+}
+
+###
 GET http://localhost:3333/notes/241cee09-ccb9-4d19-8b58-6f1979962c75
 
 

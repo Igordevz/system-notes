@@ -3,7 +3,10 @@ import { prisma } from "../../lib/prisma";
 import { z } from "zod";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-export default async function CreateUser(req: FastifyRequest,reply: FastifyReply) {
+export default async function CreateUser(
+  req: FastifyRequest,
+  reply: FastifyReply
+) {
   const secretJson = process.env.JWT_SECRET_KEY;
 
   const userSchema = z.object({
@@ -19,7 +22,7 @@ export default async function CreateUser(req: FastifyRequest,reply: FastifyReply
       email,
     },
   });
-  
+
   if (userExist) {
     reply.status(401).send("This user already exists");
   }
@@ -41,11 +44,9 @@ export default async function CreateUser(req: FastifyRequest,reply: FastifyReply
   });
   const newUser = createNewUser;
 
-  const token = jwt.sign(
-    { userId: newUser?.id, email: newUser.email },
-    secretJson,
-    { expiresIn: "7d" }
-  );
+  const token = jwt.sign({ userId: newUser?.id }, secretJson, {
+    expiresIn: "7d",
+  });
 
   if (!createNewUser) {
     reply.status(401).send("This error application");
