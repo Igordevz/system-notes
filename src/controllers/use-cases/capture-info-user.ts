@@ -24,6 +24,9 @@ export default async function GetUserProfile(req: FastifyRequest) {
       id: decode?.userId
     }
   })
-  return decode
+  if(!user){
+    throw new Error('Usuário não encontrado');
+  }
+  return user
 
 }
