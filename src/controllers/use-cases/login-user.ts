@@ -26,7 +26,7 @@ export default async function LoginUser(req:FastifyRequest, reply:FastifyReply){
     throw new Error('jwt is required');
   }
 
-  const token = jwt.sign({userId: user.id, user: user.password},secretJson, {expiresIn: '1h'} )
+  const token = jwt.sign({userId: user.id, user: user.password},secretJson, {expiresIn: '7d'} )
 
   const passwordHash = await bcrypt.compare(password, user?.password);
 

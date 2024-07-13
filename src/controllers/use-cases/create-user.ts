@@ -44,7 +44,7 @@ export default async function CreateUser(req: FastifyRequest,reply: FastifyReply
   const token = jwt.sign(
     { userId: newUser?.id, email: newUser.email },
     secretJson,
-    { expiresIn: "1h" }
+    { expiresIn: "7d" }
   );
 
   if (!createNewUser) {
