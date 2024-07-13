@@ -1,7 +1,7 @@
-
+### Primary request
 GET http://localhost:3333
 
-#####
+### Create User
 POST http://localhost:3333/api/user HTTP/1.1
 Content-Type: application/json
 
@@ -10,7 +10,7 @@ Content-Type: application/json
   "email": "john@gmail.com",
   "password": "12345678"
 }
-####
+### Login
 
 POST http://localhost:3333/api/user/login HTTP/1.1
 Content-Type: application/json
@@ -23,19 +23,20 @@ Content-Type: application/json
 ### create - notes 
 
 //e2c82880-fb4c-4a2d-a8f6-2bcd25cb02b5
-
+### create - notes
 POST http://localhost:3333/notes HTTP/1.1
 Content-Type: application/json
 
 {
-  "userId": "e2c82880-fb4c-4a2d-a8f6-2bcd25cb02b5",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxZWM3NjU4OC01NGM3LTQxN2UtYjY2YS04YzY3ZjQ4NmEwMTciLCJ1c2VyIjoiJDJiJDEyJFQyUW5sam1hNGR5WVhNMldxR3llcy4uaU5TaUtldktSS2RNcjBlSk5iakkyQzQza293TkYuIiwiaWF0IjoxNzIwODg1ODM1LCJleHAiOjE3MjA4ODk0MzV9.23iEs7n78SiWp6sh8sC1LzYZjh80ZQC0jVh645RE3Sk",
+  "userId": "1ec76588-54c7-417e-b66a-8c67f486a017",
   "title": "Boniteza",
   "content": "Eu preciso ser mais bonito"
 }
 
 ###
 
-GET http://localhost:3333/notes/2f545f57-e4c5-4818-9901-69bd2ec13493
+GET http://localhost:3333/notes/241cee09-ccb9-4d19-8b58-6f1979962c75
 
 
 

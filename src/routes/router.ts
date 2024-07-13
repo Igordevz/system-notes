@@ -5,6 +5,7 @@ import bcrypt from "bcrypt";
 import CreateUser from "../controllers/use-cases/create-user";
 import LoginUser from "../controllers/use-cases/login-user";
 import CreateNotes from "../controllers/notes/create-notes";
+import GetNotes from "../controllers/notes/notes-id";
 export default async function Router(app: FastifyInstance) {
   app.get("/", (req, res) => {
     return "hello word";
@@ -16,21 +17,5 @@ export default async function Router(app: FastifyInstance) {
 
   app.post("/notes", CreateNotes);
 
-  app.get("/notes/:id", async (req) => {
-    const data: any = req.params;
-
-    if (!data) {
-      return "Invalid ID";
-    }
-
-    const filter = await prisma.notes.findUnique({
-      where: {
-        id: data?.id,
-      },
-    });
-    if (!filter) {
-      return { statusCode: 404, body: "Note not found" };
-    }
-    return filter;
-  });
+  app.get("/notes/:id", GetNotes);
 }
