@@ -22,6 +22,9 @@ export default async function GetUserProfile(req: FastifyRequest) {
   const user = await prisma.user.findUnique({
     where: {
       id: decode?.userId
+    },
+    include: {
+      Notes: true
     }
   })
   if(!user){
