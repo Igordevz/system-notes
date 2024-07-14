@@ -11,8 +11,7 @@ export default async function VerifyToken(req:FastifyRequest){
 
   const { token } = tokenSchema.parse(req.body);
   if(!secretJson){
-    throw new Error("Token is required");
-    
+    throw new Error('Token is required');
   }
   const decode:any = jwt.verify(token, secretJson)
 

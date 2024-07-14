@@ -40,6 +40,17 @@ Content-Type: application/json
 }
 
 ###
+PUT http://localhost:3333/notes HTTP/1.1
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YjM2ODRjNC1iZTk3LTRiMzYtODM2NC0wOTg1ZDVhYWNmOTAiLCJpYXQiOjE3MjA5MTYxNzYsImV4cCI6MTcyMTUyMDk3Nn0.Vx-bNgYdYvq0-lpILxLsl7XWMW_xNGREJo80XFUppbY",
+  "id":"a8e28c4c-e119-4d69-b1cf-b6423aa8fa72",
+  "content":"Eu não estou me achando mais bonito",
+  "title":"Eu sou feio"
+}
+
+###
 GET http://localhost:3333/notes/241cee09-ccb9-4d19-8b58-6f1979962c75
 
 
