@@ -5,11 +5,12 @@ const secretJson = process.env.JWT_SECRET_KEY;
 import jwt from "jsonwebtoken"
 export default async function VerifyToken(req:FastifyRequest){
   
-  const tokenSchema = z.object({
-    token: z.string()
-  })
+  const { token }:any = req.body
 
-  const { token } = tokenSchema.parse(req.body);
+  if(!token){
+    throw new Error('Token is required');
+  }
+
   if(!secretJson){
     throw new Error('Token is required');
   }
@@ -19,5 +20,5 @@ export default async function VerifyToken(req:FastifyRequest){
     throw new Error('Token inválido');
   }
 
-  return decode;
+  return 'Sua nota foi removida com sucesso!';
 }

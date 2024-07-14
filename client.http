@@ -39,7 +39,7 @@ Content-Type: application/json
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YjM2ODRjNC1iZTk3LTRiMzYtODM2NC0wOTg1ZDVhYWNmOTAiLCJpYXQiOjE3MjA5MTYxNzYsImV4cCI6MTcyMTUyMDk3Nn0.Vx-bNgYdYvq0-lpILxLsl7XWMW_xNGREJo80XFUppbY"
 }
 
-###
+### Update Notes
 PUT http://localhost:3333/notes HTTP/1.1
 Content-Type: application/json
 
@@ -50,7 +50,16 @@ Content-Type: application/json
   "title":"Eu sou feio"
 }
 
-###
+### Remove Notes
+DELETE http://localhost:3333/notes HTTP/1.1
+Content-Type: application/json
+
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI3YjM2ODRjNC1iZTk3LTRiMzYtODM2NC0wOTg1ZDVhYWNmOTAiLCJpYXQiOjE3MjA5MTYxNzYsImV4cCI6MTcyMTUyMDk3Nn0.Vx-bNgYdYvq0-lpILxLsl7XWMW_xNGREJo80XFUppbY",
+  "id":"9e79bfe2-d8aa-483a-8583-051e7f39f8e9"
+}
+
+### 
 GET http://localhost:3333/notes/241cee09-ccb9-4d19-8b58-6f1979962c75
 
 

@@ -9,6 +9,7 @@ import GetNotes from "../controllers/notes/notes-id";
 import GetUserProfile from "../controllers/use-cases/capture-info-user";
 import VerifyToken from "../controllers/middleware/auth-token";
 import UpdateNotes from "../controllers/notes/update-notes";
+import RemoveNotes from "../controllers/notes/remove-notes";
 export default async function Router(app: FastifyInstance) {
   
   app.get("/", (req, res) => {
@@ -23,4 +24,5 @@ export default async function Router(app: FastifyInstance) {
   app.get("/notes/:id",{preHandler: VerifyToken}, GetNotes);
   app.post("/notes",{preHandler: VerifyToken} ,CreateNotes);
   app.put('/notes', {preHandler: VerifyToken}, UpdateNotes)
+  app.delete('/notes', {preHandler: VerifyToken}, RemoveNotes)
 }
