@@ -7,6 +7,7 @@ import LoginUser from "../controllers/use-cases/login-user";
 import CreateNotes from "../controllers/notes/create-notes";
 import GetNotes from "../controllers/notes/notes-id";
 import GetUserProfile from "../controllers/use-cases/capture-info-user";
+import VerifyToken from "../controllers/middleware/auth-token";
 export default async function Router(app: FastifyInstance) {
   app.get("/", (req, res) => {
     return "hello word";
@@ -16,7 +17,7 @@ export default async function Router(app: FastifyInstance) {
 
   app.post("/api/user/login", LoginUser);
 
-  app.post("/notes", CreateNotes);
+  app.post("/notes",{preHandler: VerifyToken} ,CreateNotes);
 
   app.get("/notes/:id", GetNotes);
 
