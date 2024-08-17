@@ -1,3 +1,4 @@
+import { ModeToggle } from "@/components/modals-application/mode-toggle";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
@@ -8,6 +9,7 @@ import React from "react";
 export default function SingUp() {
   return (
     <main className="flex flex-col w-full h-screen items-center justify-center">
+      <ModeToggle/>
       <div className="md:w-[370px] w-5/6">
         <h1 className="w-full md:text-3xl text-xl font-bold gratuita">
           Crie sua conta
