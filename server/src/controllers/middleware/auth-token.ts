@@ -1,5 +1,4 @@
 import type { FastifyRequest } from "fastify";
-import { z } from 'zod'
 
 const secretJson = process.env.JWT_SECRET_KEY;
 import jwt from "jsonwebtoken"
