@@ -1,20 +1,19 @@
 "use client"
-import { createContext, useState, type ReactNode } from "react";
+import { createContext, useEffect, useState, type ReactNode } from "react";
 import type { IChildren } from "./children-type";
+import { instance } from "@/service/api";
+import axios from "axios";
 
 export const ContextApi =  createContext({})
 
 export default function AuthContextProvider({children}:IChildren){
-
-  const [ ] = useState();
-
-  async function AuthRegister(){
-    
-  }
-
-  async function GetApi(){
-    
-  }
+  useEffect(() => {
+    async function GetApi(){
+      const api = await instance.get('/');
+      console.log(api);
+    }
+    GetApi();
+  },[])
   return (
     <ContextApi.Provider value={{}} >
         {children}
