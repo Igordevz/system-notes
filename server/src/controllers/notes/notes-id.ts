@@ -13,7 +13,7 @@ export default async function GetNotes(
     },
   });
   if (!filter) {
-    return { statusCode: 404, message: "Não foi encontrada nenhuma nota" };
+    return { statusCode: 404, message: "Não foi encontrada nenhuma anotação" };
   }
   return filter;
 }

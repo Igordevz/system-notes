@@ -21,7 +21,7 @@ export default async function CreateNotes(
   });
 
   if (!userIdValid) {
-    throw new Error("User not found");
+    throw new Error("Usuário não encontrado");
   }
 
   const newNote = await prisma.notes.create({
