@@ -5,10 +5,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { AuthContextApi } from "@/context/auth-context";
 export default function SingUp() {
   const userFormSchema = z.object({
     name: z.string().min(3, "Nome Inválido").max(50),
@@ -24,9 +25,8 @@ export default function SingUp() {
     resolver: zodResolver(userFormSchema),
   });
 
-  async function createUser(data: any) {
-    console.log(data);
-  }
+  const { RegisterUser }:any = useContext(AuthContextApi)
+
   return (
     <main className="flex flex-col w-full h-screen items-center justify-center">
       <ModeToggle />
@@ -36,7 +36,7 @@ export default function SingUp() {
         </h1>
       </div>
       <form
-        onSubmit={handleSubmit(createUser)}
+        onSubmit={handleSubmit(RegisterUser)}
         className="flex flex-col p-4 gap-2 md:w-[400px] w-5/6"
       >
         <Label htmlFor="name">Nome completo</Label>

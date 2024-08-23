@@ -13,7 +13,7 @@ export default async function UpdateNotes(
   });
 
   if(!verifyIdNotes){
-    throw new Error('Sua nota não foi encontrada.')
+    throw new Error('Your Note Not Found')
   }
 
   const update = await prisma.notes.update({
@@ -27,7 +27,7 @@ export default async function UpdateNotes(
   });
 
   if(!update){
-    return 'Nenhuma Alteração realizada'
+    return 'No Changes Made'
   }
 
   return update;

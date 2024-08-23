@@ -16,14 +16,14 @@ export default async function RemoveNotes(
     where: { id },
   })
   if(!getNotes){
-   throw new Error('Sua Nota não foi encontrada')
+   throw new Error('Your Note Not Found')
   }
   const RemoveModel = await prisma.notes.delete({
     where: { id },
   })
 
   if(!RemoveModel) {
-    throw new Error('Sua Nota não foi encontrada')
+    throw new Error('Your Note Not Found')
   }
 
   return RemoveNotes;
